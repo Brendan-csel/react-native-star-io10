@@ -1,3 +1,4 @@
+import type { Error } from './Error'
 import {
     NativeModules
 } from 'react-native';

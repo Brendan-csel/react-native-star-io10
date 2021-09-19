@@ -677,7 +677,7 @@ class StarIO10ValueConverter {
                     finish = true
                 }
 
-                override fun onFailureImpl(dataSource: DataSource<CloseableReference<CloseableImage>>?) {
+                override fun onFailureImpl(dataSource: DataSource<CloseableReference<CloseableImage>>) {
                     finish = true
                 }
             }, executor)
@@ -726,9 +726,9 @@ class StarIO10ValueConverter {
                 val client = OkHttpClient()
                 val request = Request.Builder().url(uri).build()
                 val response = client.newCall(request).execute()
-                response.body()?.bytes()?.let { responseBytes ->
+                response.body?.bytes()?.let { responseBytes ->
                     bytes = responseBytes.toList()
-                    response.body()?.close()
+                    response.body?.close()
                 }
             } catch (e: Exception){}
 
